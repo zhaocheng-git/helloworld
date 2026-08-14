@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add(a,b){//具名函数
+            return a+b;
+        }
+        let c=add(1,2);
+        //输出到控制台
+        console.log(c);
+
+        // 函数表达式
+        let add1=function(a,b){//匿名函数
+            return a+b;
+        }
+        let d=add1(3,4);
+        //输出到控制台
+        console.log(d);
+
+        // 箭头函数
+        let add2=(a,b)=>{
+            return a+b;
+        };
+        let e=add2(5,6);
+        console.log(e);
+    </script>
+</body>
+</html>

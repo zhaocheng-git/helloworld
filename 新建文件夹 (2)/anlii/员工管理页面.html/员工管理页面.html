@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Tlias智能学习辅助系统</title>
+    <style>
+        /* 顶部导航栏整体样式 */
+        .header {
+            /* 灰色背景 */
+            background-color: #d9d9d9;
+            /* 上下内边距 15px，左右内边距 20px */
+            padding: 15px 20px;
+            /* 弹性布局，让标题和退出登录在一行 */
+            display: flex;
+            /* 两端对齐：标题左，退出右 */
+            justify-content: space-between;
+            /* 垂直居中对齐 */
+            align-items: center;
+        }
+
+        /* 标题样式：加大加粗 */
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            /* 清除标题默认外边距 */
+            margin: 0;
+            color:white;
+            /* 设置字体为楷体 */
+            font-family: kaiti;
+        }
+
+        /* 退出登录链接样式 */
+        .logout {
+            font-size: 16px;
+            color: #333;
+            /* 去掉下划线，需要可以删除 */
+            text-decoration: none;
+        }
+
+        /* 鼠标悬浮效果 */
+        .logout:hover {
+            color: #ff0000;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="header">
+        <!-- 左侧标题 -->
+        <h1 class="title">Tlias智能学习辅助系统</h1>
+        <!-- 右侧退出登录链接 -->
+        <a href="#" class="logout">退出登录</a>
+    </div>
+</body>
+</html>
