@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前后端联调 Demo</title>
+</head>
+<body>
+  <h1>前后端联调 Demo</h1>
+
+  <!-- 按钮：调用 GET /api/hello 接口 -->
+  <button id="helloBtn">调用 GET /api/hello</button>
+  <p id="helloResult"></p>
+
+  <hr>
+
+  <!-- 输入框：姓名 -->
+  <input type="text" id="nameInput" placeholder="请输入姓名">
+  <!-- 按钮：调用 POST /api/greet 接口 -->
+  <button id="greetBtn">调用 POST /api/greet</button>
+  <p id="greetResult"></p>
+
+  <script>
+    // 后端服务地址
+    const BASE_URL = 'http://localhost:3000';
+
+    // 获取页面元素
+    const helloBtn = document.getElementById('helloBtn');
+    const helloResult = document.getElementById('helloResult');
+    const greetBtn = document.getElementById('greetBtn');
+    const greetResult = document.getElementById('greetResult');
+    const nameInput = document.getElementById('nameInput');
+
+    // 点击按钮，调用 GET /api/hello 接口
+    helloBtn.addEventListener('click', async () => {
+      helloResult.textContent = '请求中...';
+      try {
+        const res = await fetch(`${BASE_URL}/api/hello`);
+        const data = await res.json();
+        helloResult.textContent = data.message;
+      } catch (err) {
+        helloResult.textContent = '请求失败：' + err.message;
+      }
+    });
+
+    // 点击按钮，调用 POST /api/greet 接口
+    greetBtn.addEventListener('click', async () => {
+      const name = nameInput.value.trim();
+      greetResult.textContent = '请求中...';
+      try {
+        const res = await fetch(`${BASE_URL}/api/greet`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name })
+        });
+        const data = await res.json();
+        greetResult.textContent = data.message;
+      } catch (err) {
+        greetResult.textContent = '请求失败：' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
